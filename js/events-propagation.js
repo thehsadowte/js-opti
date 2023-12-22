@@ -6,6 +6,8 @@ const textEl = document.querySelector(".js-text");
 const divEl = document.querySelector(".js-div");
 const sectionEl = document.querySelector(".js-section");
 
+// ? поширення подій. кожен елемент проходить три фази: зануренння.. встановлення цільового елемента
+// ? та спливання. По замовчуванню події спливають, тобто спочатку виконується обробник на найглибшому елементі
 textEl.addEventListener(
   "click",
   (event) => {
@@ -27,6 +29,13 @@ textEl.addEventListener("click", (event) => {
   console.groupEnd("p addEventListener");
 });
 
+//& event.target - це елемент на якому відбулась подія (де зловили клік )
+
+//& event.current.target - це елемент на якому спрацьовював обробник події, на фазі вспливання
+
+//* 3ій аргумент евент лістенер приймає обʼєкт налаштувань, наприклад once: true;
+//* caputre: true; дозволяє змінити порядок.. тобто обробники викликаються на фазі занурення.
+
 divEl.addEventListener(
   "click",
   (event) => {
@@ -37,7 +46,7 @@ divEl.addEventListener(
   },
   {
     // once: true,
-    capture: true,
+    // capture: true,
   }
 );
 
@@ -68,3 +77,4 @@ sectionEl.addEventListener("click", (event) => {
   console.log("event.currentTarget: ", event.currentTarget);
   console.groupEnd("section addEventListener");
 });
+//? делегування подій
