@@ -3,7 +3,8 @@ let prevTdEl = null;
 
 const onCalendarElClick = (event) => {
   const { target } = event;
-  //   console.dir(target);
+  console.log("event.target", target);
+  console.log("current: ", event.currentTarget);
 
   // Якщо комірка порожня або це не <td>, то нічого робити не треба.
   if (target.textContent === "" || target.tagName !== "TD") {

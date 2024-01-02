@@ -1,7 +1,8 @@
 const messageList = document.querySelector("ul");
 
-const onCloseButtonClick = (e) => {
-  const { target } = e;
+const onCloseButtonClick = (event) => {
+  const { target } = event;
+  // event.target
 
   if (target.tagName !== "BUTTON") {
     return;
